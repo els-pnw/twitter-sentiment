@@ -40,6 +40,9 @@ def flatten_tweets(tweets_json):
                 tweet_obj['retweeted_status-text'] = tweet_obj['retweeted_status']['text']
             elif 'full_text' in tweet_obj['retweeted_status']:
                 tweet_obj['retweeted_status-full_text'] = tweet_obj['retweeted_status']['full_text']
+
+        if 'user' in tweet_obj:
+            tweet_obj['user-location'] = tweet_obj['user']['location']
             
         tweets_list.append(tweet_obj)
     return tweets_list
